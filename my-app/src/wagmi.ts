@@ -1,12 +1,12 @@
 import { http, createConfig } from 'wagmi'
-import { mainnet, sepolia,   } from 'wagmi/chains'
+import { scrollSepolia  } from 'wagmi/chains'
 import { coinbaseWallet, injected, walletConnect, metaMask } from 'wagmi/connectors'
 
 /**
  * Wagmi用の設定ファイル
  */
 export const config = createConfig({
-  chains: [mainnet, sepolia],
+  chains: [scrollSepolia],
   connectors: [
     // injected(),
     metaMask(),
@@ -15,8 +15,7 @@ export const config = createConfig({
   ],
   ssr: true,
   transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(),
+    [scrollSepolia.id]: http(),
   },
 })
 
